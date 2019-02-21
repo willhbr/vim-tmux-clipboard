@@ -8,23 +8,19 @@ clipboard.
 
 
 vim-tmux-clipboard automatically copy yanked text into tmux's clipboard, and
-copy tmux's clipboard content into vim's quote(`"`) register, known as the unnamed
-register. It also makes multiple vim processes on top of the same tmux session
-act like they're sharing the same clipboard.
-
+copy tmux's clipboard content into vim's asterisk (`*`) register.
 
 ## Requirements
 
-- add `set -g focus-events on` to your `tmux.conf`.
+- Add `set -g focus-events on` to your `tmux.conf`.
 - [vim-tmux-focus-events](https://github.com/tmux-plugins/vim-tmux-focus-events) for vim users.
-- [neovim](https://github.com/neovim/neovim) is recommended. Because vim does
-    not support `TextYankPost` event, which is required for `It also makes
-    multiple vim processes on top of the same tmux session act like they're
-    sharing the same clipboard`.
 
+Install via pug:
 
-## Demo
+```shell
+pug get vim github: tmux-plugins/vim-tmux-focus-events
+pug get vim github: willhbr/vim-tmux-clipboard
+```
 
-[![asciicast](https://asciinema.org/a/7qzb7c12ykv3kcleo4jgrl2jy.png)](https://asciinema.org/a/7qzb7c12ykv3kcleo4jgrl2jy)
-
-
+Customise the register used with `set g:tmux_shared_register = '+'` (defaults to `*`).
+This is useful if you don't have +clipboard support in Vim, but want to be able to use some other register.
